@@ -7,9 +7,7 @@ body {
 }
 
 .navbar-fixed {
-  @apply fixed z-[9999] bg-white bg-opacity-70;
-  /* tambahkan efek glass box, karena efek tersebut tidak ada di tailwind gunakan css biasa */
-  backdrop-filter: blur(5px);
+  @apply fixed z-[9999] bg-white bg-opacity-70 backdrop-blur-sm dark:bg-dark dark:bg-opacity-50;
 
   /* tambahkan drop shadow untuk pembatas, perintah dibawah dibaca */
   /* buat box-shadow: inset (posisi elemen didalam)-> sumbuX = 0 supaya gak geser ke kiri/kanan -> mundur keatas -1px -> tebelnya 0 -> spreednya 0 -> warna hitam tapi transparan    */
@@ -18,7 +16,7 @@ body {
 }
 
 .hamburger-line {
-  @apply w-[30px] h-[2px] my-2 block bg-dark;
+  @apply w-[30px] h-[2px] my-2 block bg-dark dark:bg-white;
 }
 
 /* pelajari tentang selector combinator css tanda > (tanda lebihdari) artinya cari element chield dari class hamburger-active  */
@@ -32,4 +30,8 @@ body {
 
 .hamburger-active > span:nth-child(3) {
   @apply -rotate-45;
+}
+
+#dark-toggle:checked ~ label div.toggle-circle {
+  @apply translate-x-3;
 }
